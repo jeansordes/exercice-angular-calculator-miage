@@ -1,0 +1,54 @@
+<div class="container">
+    <form [formGroup]="myForm" class="my-form">
+        <div class="input-group mt-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Opérateur 1</span>
+            </div>
+            <input id="op1input" class="form-control" type="number" formControlName="op1">
+        </div>
+
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-light" (click)="operation('+')">+</button>
+            <button type="button" class="btn btn-light" (click)="operation('-')">−</button>
+            <button type="button" class="btn btn-light" (click)="operation('/')">÷</button>
+            <button type="button" class="btn btn-light" (click)="operation('*')">×</button>
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Opérateur 2</span>
+            </div>
+            <input id="op2input" class="form-control" type="number" formControlName="op2">
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">=</span>
+            </div>
+            <input class="form-control" type="number" disabled="true" [value]="resultat">
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-primary mr-1" (click)="memoriser()">Mémoriser</button>
+            <button type="button" class="btn btn-light" (click)="chargerMemoire()">Charger la mémoire</button>
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">En mémoire</span>
+            </div>
+            <input class="form-control" type="number" disabled [value]="resultatEnMemoire">
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mes {{ operationHistory.length > 0 ? operationHistory.length + ' ' : '' }}dernières opérations</h5>
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let res of operationHistory">{{ res }}</li>
+                <li class="list-group-item" *ngIf="operationHistory.length == 0">Votre historique est vide ¯\_(ツ)_/¯</li>
+            </ul>
+        </div>
+    </form>
+</div>
