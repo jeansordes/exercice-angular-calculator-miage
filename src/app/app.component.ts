@@ -19,13 +19,13 @@ export class AppComponent {
             case '+':
                 this.resultat = this.op1 + this.op2;
                 break;
-            case '-':
+            case '−':
                 this.resultat = this.op1 - this.op2;
                 break;
-            case '*':
+            case '×':
                 this.resultat = this.op1 * this.op2;
                 break;
-            case '/':
+            case '÷':
                 this.resultat = this.op1 / this.op2;
                 break;
             default:
@@ -33,7 +33,7 @@ export class AppComponent {
                 break;
         }
 
-        const operation = this.op1 + ' + ' + this.op2 + ' = ' + this.resultat;
+        const operation = this.op1 + ' ' + sign + ' ' + this.op2 + ' = ' + this.resultat;
         if (this.operationHistory[0] != operation) {
             this.operationHistory.unshift(operation);
         }
