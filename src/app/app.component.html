@@ -1,10 +1,10 @@
 <div class="container">
-    <form [formGroup]="myForm" class="my-form">
+    <div class="my-form">
         <div class="input-group mt-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Opérateur 1</span>
             </div>
-            <input id="op1input" class="form-control" type="number" formControlName="op1">
+            <input id="op1input" class="form-control" type="number" [(ngModel)]="op1">
         </div>
 
         <div class="btn-group" role="group">
@@ -18,7 +18,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Opérateur 2</span>
             </div>
-            <input id="op2input" class="form-control" type="number" formControlName="op2">
+            <input id="op2input" class="form-control" type="number" [(ngModel)]="op2">
         </div>
 
         <div class="input-group">
@@ -50,5 +50,5 @@
                 <li class="list-group-item" *ngIf="operationHistory.length == 0">Votre historique est vide ¯\_(ツ)_/¯</li>
             </ul>
         </div>
-    </form>
+    </div>
 </div>
